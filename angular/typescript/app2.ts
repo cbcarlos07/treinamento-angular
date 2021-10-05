@@ -76,8 +76,8 @@ class Pessoa {
         return this.carroPreferido
     }
 
-    comprarCarro(): string{
-        return this.carro
+    comprarCarro(_nome: string): string{
+        return _nome
     }
 
     dizerCarroQueTem(): string{
@@ -89,6 +89,6 @@ let pessoa = new Pessoa('Carlos','hilux', 'fusca')
 console.log(`Meu nome é "${pessoa.dizerNome()}"`);
 console.log(`Meu carro preferido é "${pessoa.dizerCarroPreferido()}"`);
 console.log(`O carro que eu tenho é "${pessoa.dizerCarroQueTem()}"`);
-console.log(`Quem quer comprar meu "${pessoa.comprarCarro()}"?`);
+console.log(`Quero comprar o carro "${pessoa.comprarCarro('Ferrari')}"?`);
 
       

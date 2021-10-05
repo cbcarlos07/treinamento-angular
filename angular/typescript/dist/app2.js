@@ -56,8 +56,8 @@ var Pessoa = /** @class */ (function () {
     Pessoa.prototype.dizerCarroPreferido = function () {
         return this.carroPreferido;
     };
-    Pessoa.prototype.comprarCarro = function () {
-        return this.carro;
+    Pessoa.prototype.comprarCarro = function (_nome) {
+        return _nome;
     };
     Pessoa.prototype.dizerCarroQueTem = function () {
         return this.carro;
@@ -68,4 +68,4 @@ var pessoa = new Pessoa('Carlos', 'hilux', 'fusca');
 console.log("Meu nome \u00E9 \"" + pessoa.dizerNome() + "\"");
 console.log("Meu carro preferido \u00E9 \"" + pessoa.dizerCarroPreferido() + "\"");
 console.log("O carro que eu tenho \u00E9 \"" + pessoa.dizerCarroQueTem() + "\"");
-console.log("Quem quer comprar meu \"" + pessoa.comprarCarro() + "\"?");
+console.log("Quero comprar o carro \"" + pessoa.comprarCarro('Ferrari') + "\"?");
