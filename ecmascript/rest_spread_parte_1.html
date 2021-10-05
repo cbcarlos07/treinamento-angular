@@ -1,0 +1,34 @@
+<html>
+    <body>
+        <div id = "teste"></div>
+        <script>
+           //rest e spread  -- contexto spread --- utilizado para expandir strings, arrays e objetos
+        
+           //string
+           let tituloArtigo = 'Como utilizar  o operador rest/spread'
+           console.log(tituloArtigo)  
+           console.log(...tituloArtigo) 
+           console.log([...tituloArtigo])
+           console.log({...tituloArtigo})
+
+           //arrays
+           let listaCursos1 = ['NodeJS e MongoDB', 'Angular 12']
+           let listaCursos2 = ['Solid', 'Spring Boot']
+           let listaCompletaCursos = [
+                ...listaCursos1,
+               'Java Completo', 
+               ...listaCursos2,
+               'Banco de Dados Oracle'
+            ]
+
+            console.log(listaCompletaCursos)
+
+            //objetos
+            let pessoa = { nome: 'Osvaldo', idade: 57 }
+            let cadastroCompleto = { endereco: 'Rua Abc', ...pessoa }
+
+            console.log(cadastroCompleto)
+
+        </script>
+    </body>
+</html>

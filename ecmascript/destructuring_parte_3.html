@@ -1,0 +1,34 @@
+<html>
+    <body>
+        <div id = "teste"></div>
+        <script>
+           //arrays
+           let arr = [10, 20, 30, 40]
+           //function teste ([ a, b ]) {  //desestruturando o array na assinatura do metodo
+           //function teste([ a, b, , c ]) { //pular valores
+            function teste([ a, b, , c, d = 100 ]) { // parametros padrao
+                console.log(a, b, c, d);
+            }
+           //teste(arr[0], arr[1])
+           //teste(arr)
+
+           //objeto
+           let obj = {
+               a: 10,
+               b: 20,
+               c: 30,
+               d: 40
+           }
+
+           //function teste2({ c, d }) {
+           // function teste2({ c, d: x }) { //apelidos
+            function teste2({ c, d: x, t = 100 }) { //parametros padrao
+                console.log(c, x, t);
+            }
+            
+           //teste2(obj.a, obj.b)
+           teste2(obj)
+
+        </script>
+    </body>
+</html>
