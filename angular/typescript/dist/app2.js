@@ -16,8 +16,54 @@ var Carro = /** @class */ (function () {
     };
     return Carro;
 }());
-var carroA = new Carro('Veloster', 3);
-console.log(carroA);
-carroA.acelerar();
-carroA.acelerar();
-console.log(carroA);
+var Concessionaria = /** @class */ (function () {
+    function Concessionaria(endereco) {
+        this.endereco = endereco;
+    }
+    Concessionaria.prototype.fornecerEndereco = function () {
+        return this.endereco;
+    };
+    Concessionaria.prototype.mostrarListaDeCarros = function () {
+        return this.listaDeCarros;
+    };
+    return Concessionaria;
+}());
+var concessionaria = new Concessionaria('Av Paulista');
+console.log(concessionaria);
+/*
+Pessoa
+    Atributos
+      nome
+      carroPreferido
+      carro
+    Metodos
+      dizerNome()
+      dizerCarroPreferido()
+      comprarCarro()
+      dizerCarroQueTem()
+*/
+var Pessoa = /** @class */ (function () {
+    function Pessoa(_nome, _carroPreferido, _carro) {
+        this.nome = _nome;
+        this.carroPreferido = _carroPreferido;
+        this.carro = _carro;
+    }
+    Pessoa.prototype.dizerNome = function () {
+        return this.nome;
+    };
+    Pessoa.prototype.dizerCarroPreferido = function () {
+        return this.carroPreferido;
+    };
+    Pessoa.prototype.comprarCarro = function () {
+        return this.carro;
+    };
+    Pessoa.prototype.dizerCarroQueTem = function () {
+        return this.carro;
+    };
+    return Pessoa;
+}());
+var pessoa = new Pessoa('Carlos', 'hilux', 'fusca');
+console.log("Meu nome \u00E9 \"" + pessoa.dizerNome() + "\"");
+console.log("Meu carro preferido \u00E9 \"" + pessoa.dizerCarroPreferido() + "\"");
+console.log("O carro que eu tenho \u00E9 \"" + pessoa.dizerCarroQueTem() + "\"");
+console.log("Quem quer comprar meu \"" + pessoa.comprarCarro() + "\"?");
