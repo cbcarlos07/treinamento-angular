@@ -1,94 +1,30 @@
-class Carro {
-    private modelo: string
-    private numeroDePortas: number
-    private velocidade: number = 0
+import Carro from './Carro'
+import Pessoa from './Pessoa'
+import Concessionaria from './Concessionaria'
 
-    constructor(modelo: string, numeroDePortas: number) {
-        this.modelo = modelo
-        this.numeroDePortas = numeroDePortas
+
+/*-------------- criar carros --------------*/
+let carroA = new Carro('dodge journey', 4)
+let carroB = new Carro('veloster', 3)
+let carroC = new Carro('cerato', 4)
+
+/*---------------montar a lista de carros da concessionaria -------------*/
+let listaDeCarros: Carro[] = [carroA, carroB, carroC]
+let concessionaria = new Concessionaria('Av Paulista', listaDeCarros)
+
+/*-----------  exibir a lista de carros da concessionaria ---------------*/
+// console.log(concessionaria.mostrarListaDeCarros())
+
+/*---------------- comprar carro ------------------------------*/
+let cliente = new Pessoa('Joao', 'veloster')
+console.log(cliente.dizerCarroPreferido())
+
+concessionaria.mostrarListaDeCarros().map((carro: Carro) => {
+    if(carro['modelo'] == cliente.dizerCarroPreferido()) {
+        //compar o carro
+        cliente.comprarCarro(carro)
     }
+})
 
-    public acelerar(): void {
-        this.velocidade = this.velocidade + 10
-    }
+console.log(cliente.dizerCarroQueTem())
 
-    public parar(): void {
-        this.velocidade = 0
-    }
-
-    public velocidadeAtual(): number {
-        return this.velocidade
-    }
-}
-
-class Concessionaria {
-    private endereco: string
-    private listaDeCarros: any
-
-    constructor(endereco: string) {
-        this.endereco = endereco
-    }
-
-    public fornecerEndereco(): string {
-        return this.endereco
-    }
-
-    public mostrarListaDeCarros(): any {
-        this.listaDeCarros = ['hilux', 'brasília', 'fusca']
-        return this.listaDeCarros
-    }
-}
-
-let concessionaria = new Concessionaria('Av Paulista')
-console.log(concessionaria)
-console.log(concessionaria.mostrarListaDeCarros());
-
-
-/*
-Pessoa  
-    Atributos
-      nome
-      carroPreferido
-      carro
-    Metodos 
-      dizerNome()
-      dizerCarroPreferido()
-      comprarCarro()
-      dizerCarroQueTem()
-*/
-
-class Pessoa {
-    private nome: string
-    private carroPreferido:string
-    private carro: string
-
-    constructor(_nome: string, _carroPreferido: string, _carro: string){
-        this.nome = _nome
-        this.carroPreferido = _carroPreferido
-        this.carro = _carro
-    }
-
-    dizerNome(): string {
-        return this.nome
-    }
-
-    dizerCarroPreferido(): string {
-        return this.carroPreferido
-    }
-
-    comprarCarro(_nome: string): string{
-        return _nome
-    }
-
-    dizerCarroQueTem(): string{
-        return this.carro
-    }
-}
-
-let pessoa = new Pessoa('Carlos','hilux', 'fusca')
-console.log(`Meu nome é "${pessoa.dizerNome()}"`);
-console.log(`Meu carro preferido é "${pessoa.dizerCarroPreferido()}"`);
-console.log(`O carro que eu tenho é "${pessoa.dizerCarroQueTem()}"`);
-console.log(`Quero comprar o carro "${pessoa.comprarCarro('Ferrari')}"?`);
-
-      

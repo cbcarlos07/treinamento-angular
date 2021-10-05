@@ -1,71 +1,27 @@
 "use strict";
-var Carro = /** @class */ (function () {
-    function Carro(modelo, numeroDePortas) {
-        this.velocidade = 0;
-        this.modelo = modelo;
-        this.numeroDePortas = numeroDePortas;
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var Carro_1 = __importDefault(require("./Carro"));
+var Pessoa_1 = __importDefault(require("./Pessoa"));
+var Concessionaria_1 = __importDefault(require("./Concessionaria"));
+/*-------------- criar carros --------------*/
+var carroA = new Carro_1.default('dodge journey', 4);
+var carroB = new Carro_1.default('veloster', 3);
+var carroC = new Carro_1.default('cerato', 4);
+/*---------------montar a lista de carros da concessionaria -------------*/
+var listaDeCarros = [carroA, carroB, carroC];
+var concessionaria = new Concessionaria_1.default('Av Paulista', listaDeCarros);
+/*-----------  exibir a lista de carros da concessionaria ---------------*/
+// console.log(concessionaria.mostrarListaDeCarros())
+/*---------------- comprar carro ------------------------------*/
+var cliente = new Pessoa_1.default('Joao', 'veloster');
+console.log(cliente.dizerCarroPreferido());
+concessionaria.mostrarListaDeCarros().map(function (carro) {
+    if (carro['modelo'] == cliente.dizerCarroPreferido()) {
+        //compar o carro
+        cliente.comprarCarro(carro);
     }
-    Carro.prototype.acelerar = function () {
-        this.velocidade = this.velocidade + 10;
-    };
-    Carro.prototype.parar = function () {
-        this.velocidade = 0;
-    };
-    Carro.prototype.velocidadeAtual = function () {
-        return this.velocidade;
-    };
-    return Carro;
-}());
-var Concessionaria = /** @class */ (function () {
-    function Concessionaria(endereco) {
-        this.endereco = endereco;
-    }
-    Concessionaria.prototype.fornecerEndereco = function () {
-        return this.endereco;
-    };
-    Concessionaria.prototype.mostrarListaDeCarros = function () {
-        this.listaDeCarros = ['hilux', 'brasília', 'fusca'];
-        return this.listaDeCarros;
-    };
-    return Concessionaria;
-}());
-var concessionaria = new Concessionaria('Av Paulista');
-console.log(concessionaria);
-console.log(concessionaria.mostrarListaDeCarros());
-/*
-Pessoa
-    Atributos
-      nome
-      carroPreferido
-      carro
-    Metodos
-      dizerNome()
-      dizerCarroPreferido()
-      comprarCarro()
-      dizerCarroQueTem()
-*/
-var Pessoa = /** @class */ (function () {
-    function Pessoa(_nome, _carroPreferido, _carro) {
-        this.nome = _nome;
-        this.carroPreferido = _carroPreferido;
-        this.carro = _carro;
-    }
-    Pessoa.prototype.dizerNome = function () {
-        return this.nome;
-    };
-    Pessoa.prototype.dizerCarroPreferido = function () {
-        return this.carroPreferido;
-    };
-    Pessoa.prototype.comprarCarro = function (_nome) {
-        return _nome;
-    };
-    Pessoa.prototype.dizerCarroQueTem = function () {
-        return this.carro;
-    };
-    return Pessoa;
-}());
-var pessoa = new Pessoa('Carlos', 'hilux', 'fusca');
-console.log("Meu nome \u00E9 \"" + pessoa.dizerNome() + "\"");
-console.log("Meu carro preferido \u00E9 \"" + pessoa.dizerCarroPreferido() + "\"");
-console.log("O carro que eu tenho \u00E9 \"" + pessoa.dizerCarroQueTem() + "\"");
-console.log("Quero comprar o carro \"" + pessoa.comprarCarro('Ferrari') + "\"?");
+});
+console.log(cliente.dizerCarroQueTem());
