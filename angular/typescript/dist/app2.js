@@ -24,12 +24,14 @@ var Concessionaria = /** @class */ (function () {
         return this.endereco;
     };
     Concessionaria.prototype.mostrarListaDeCarros = function () {
+        this.listaDeCarros = ['hilux', 'brasília', 'fusca'];
         return this.listaDeCarros;
     };
     return Concessionaria;
 }());
 var concessionaria = new Concessionaria('Av Paulista');
 console.log(concessionaria);
+console.log(concessionaria.mostrarListaDeCarros());
 /*
 Pessoa
     Atributos

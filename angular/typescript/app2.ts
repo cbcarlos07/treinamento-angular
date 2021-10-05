@@ -34,12 +34,15 @@ class Concessionaria {
     }
 
     public mostrarListaDeCarros(): any {
+        this.listaDeCarros = ['hilux', 'brasília', 'fusca']
         return this.listaDeCarros
     }
 }
 
 let concessionaria = new Concessionaria('Av Paulista')
 console.log(concessionaria)
+console.log(concessionaria.mostrarListaDeCarros());
+
 
 /*
 Pessoa  
