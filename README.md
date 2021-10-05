@@ -12,4 +12,14 @@ Angular v12
 
 Typescript v4.4.3
 
-npm i -g typescript 
+## Instalações
+
+
+
+Angular 
+
+    npm i -g @angular/cli
+
+Typescript
+
+    npm i -g typescript 
