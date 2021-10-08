@@ -72,3 +72,6 @@ Ou
 Transformar png para icone
 
 https://www.favicon-generator.org/
+
+
+![alt text](https://github.com/cbcarlos07/treinamento-angular/blob/main/angular/img/app2/page.png)
