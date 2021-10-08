@@ -73,5 +73,27 @@ Transformar png para icone
 
 https://www.favicon-generator.org/
 
+## SERVICES
+
+Adicionando services ao componente
+
+    @Component({
+        
+        providers: [ OfertasService ]
+    })
+
+    export class HomeComponent implements OnInit {
+
+        constructor(private _ofertasService: OfertasService) { }
+
+        ngOnInit(): void {
+            console.log(this._ofertasService.getOfertas());
+            
+        }
+    }
+
+
+
 
 ![alt text](https://github.com/cbcarlos07/treinamento-angular/blob/main/angular/img/app2/page.png)
+
