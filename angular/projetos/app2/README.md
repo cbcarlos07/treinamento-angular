@@ -68,3 +68,7 @@ Para criar sem o arquvo spec.ts
 Ou
 
     ng c nome_do_componente --skip-tests
+
+Transformar png para icone
+
+https://www.favicon-generator.org/
