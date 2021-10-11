@@ -1,6 +1,11 @@
+import { HttpClient } from "@angular/common/http"
+import { Injectable } from "@angular/core"
 import { Oferta } from "./shared/oferta.model"
 
+@Injectable()
 export class OfertasService {
+
+    constructor(private http: HttpClient) {}
 
     public ofertas: Array<Oferta> = 
     [
@@ -66,7 +71,7 @@ export class OfertasService {
             if(deucerto) {
                 setTimeout(() => resolve( this.ofertas ) , 3000)
             } else  {
-                reject({ codigo_erro: 404, mensagem_erro: 'servidor nao encontrado XYZ'})
+                reject({ codigo_erro: 404, mensagem_erro: 'servidor nao encontrado XYZ' })
             }
         })
         .then(( ofertas: any) => {
