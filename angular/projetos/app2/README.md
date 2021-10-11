@@ -97,3 +97,11 @@ Adicionando services ao componente
 
 ![alt text](https://github.com/cbcarlos07/treinamento-angular/blob/main/angular/img/app2/page.png)
 
+
+## Promises
+
+    return new Promise((resolve, reject) => {
+            //algum tipo de processamento que ao finalizar chama a funcao resolve ou reject
+            console.log('serah que passou por aqui?')
+            resolve( this.ofertas )
+        })
