@@ -119,3 +119,15 @@ ou
           this.oferta = oferta;
           console.log(this.oferta);
         })
+
+## Observable
+
+    import { Observable } from 'rxjs';
+    ...
+    import { map } from 'rxjs/operators';
+
+    public pesquisaOfertas(termo: string): Observable<Oferta[]> {
+    return this.http
+      .get<Oferta[]>(`${URL_API}/ofertas?descricao_oferta_like=${termo}`)
+      .pipe(map((resposta) => resposta));
+  }
