@@ -14,11 +14,7 @@ export const ROUTES: Routes = [
     { path: 'oferta', component: HomeComponent},
     { path: 'oferta/:id', component: OfertaComponent, 
         children: [
-            {
-                path: '',
-                redirectTo: 'como-usar',
-                pathMatch: 'full'
-            },
+            { path: '', component: ComoUsarComponent },
             { path: 'como-usar', component: ComoUsarComponent },
             { path: 'onde-fica', component: OndeFicaComponent }
         ]
