@@ -105,3 +105,17 @@ Adicionando services ao componente
             console.log('serah que passou por aqui?')
             resolve( this.ofertas )
         })
+
+## ActivatedRoute
+
+Para recuperar um parâmetro da rota é temos algumas opções
+
+    this.route.snapshot.params['id']
+
+ou
+
+    this.ofertasService.getOfertaPorId(this.route.snapshot.params['id'])
+        .then((oferta: Oferta) => {
+          this.oferta = oferta;
+          console.log(this.oferta);
+        })
