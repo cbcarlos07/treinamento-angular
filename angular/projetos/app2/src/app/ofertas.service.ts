@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Oferta } from './shared/oferta.model';
 import { URL_API } from './app.api';
 import { map } from 'rxjs/operators';
+import { retry } from 'rxjs/operators';
 
 @Injectable()
 export class OfertasService {
@@ -55,6 +56,7 @@ export class OfertasService {
   public pesquisaOfertas(termo: string): Observable<Oferta[]> {
     return this.http
       .get<Oferta[]>(`${URL_API}/ofertas?descricao_oferta_like=${termo}`)
+      .pipe(retry(10))
       .pipe(map((resposta) => resposta));
   }
 }
