@@ -2,7 +2,7 @@ import { Observable, of, Subject } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { OfertasService } from '../ofertas.service';
 import { Oferta } from '../shared/oferta.model';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'app-topo',
@@ -19,6 +19,8 @@ export class TopoComponent implements OnInit {
 
   ngOnInit(): void {
     this.ofertas = this.subjectPesquisa // retorno do array de Ofertas
+    .pipe(debounceTime(1000))           // executa a acao do swtich map apos 1 seg
+    .pipe(distinctUntilChanged())
     .pipe(switchMap((termo: string) => {
       console.log('requisicao http para api  ', termo);
       if(termo.trim() === '') {
@@ -31,7 +33,7 @@ export class TopoComponent implements OnInit {
     this.ofertas.subscribe((ofertas: Oferta[]) => {
       console.log(ofertas);
     })
-    
+
   }
 
   public pesquisa(termoDaPesquisa: string): void {
