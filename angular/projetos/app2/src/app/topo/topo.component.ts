@@ -2,7 +2,7 @@ import { Observable, of, Subject } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { OfertasService } from '../ofertas.service';
 import { Oferta } from '../shared/oferta.model';
-import { switchMap, debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { switchMap, debounceTime, distinctUntilChanged, catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-topo',
@@ -12,6 +12,7 @@ import { switchMap, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 })
 export class TopoComponent implements OnInit {
   public ofertas!: Observable<Oferta[]>;
+  public ofertas2!: Oferta[]
 
   private subjectPesquisa: Subject<string> = new Subject<string>()
 
@@ -20,7 +21,7 @@ export class TopoComponent implements OnInit {
   ngOnInit(): void {
     this.ofertas = this.subjectPesquisa // retorno do array de Ofertas
     .pipe(debounceTime(1000))           // executa a acao do swtich map apos 1 seg
-    .pipe(distinctUntilChanged())
+    .pipe(distinctUntilChanged())       // para fazer pesquisas distintas
     .pipe(switchMap((termo: string) => {
       console.log('requisicao http para api  ', termo);
       if(termo.trim() === '') {
@@ -29,9 +30,13 @@ export class TopoComponent implements OnInit {
       }
       return this.ofertasService.pesquisaOfertas(termo)   
     }))
+    .pipe(catchError((err: any) => {
+      return of<Oferta[]>([])
+    }))
 
     this.ofertas.subscribe((ofertas: Oferta[]) => {
-      console.log(ofertas);
+       console.log(ofertas);
+       this.ofertas2 = ofertas
     })
 
   }
@@ -39,7 +44,7 @@ export class TopoComponent implements OnInit {
   public pesquisa(termoDaPesquisa: string): void {
       console.log('keyup carcter ', termoDaPesquisa);
       
-      this.subjectPesquisa.next(termoDaPesquisa)
+      this.subjectPesquisa.next(termoDaPesquisa.trim())
 
 
 
