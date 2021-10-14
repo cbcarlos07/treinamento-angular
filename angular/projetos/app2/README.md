@@ -131,3 +131,23 @@ ou
       .get<Oferta[]>(`${URL_API}/ofertas?descricao_oferta_like=${termo}`)
       .pipe(map((resposta) => resposta));
   }
+
+
+## switchMap
+    
+    this.ofertas = this.subjectPesquisa // retorno do array de Ofertas
+    .pipe(switchMap((termo: string) => {
+      console.log('requisicao http para api  ', termo);
+      if(termo.trim() === '') {
+        //retornar um observable de array de ofertas vazio
+        return of<Oferta[]>([])
+      }
+      return this.ofertasService.pesquisaOfertas(termo)   
+    }))
+
+    this.ofertas.subscribe((ofertas: Oferta[]) => {
+      console.log(ofertas);
+    })
+
+
+    this.subjectPesquisa.next(termoDaPesquisa)
