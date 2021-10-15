@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OrdemCompraService } from '../ordem-compra.service';
 
 @Component({
   selector: 'app-ordem-compra',
@@ -18,9 +19,10 @@ export class OrdemCompraComponent implements OnInit {
   public complementoValido!: boolean
   public formaPagamentoValido!: boolean
 
-  constructor() { }
+  constructor(private _ordemCompraService: OrdemCompraService) { }
 
   ngOnInit(): void {
+      //this._ordemCompraService.efetivarCompra()
   }
 
   public atualizaEndereco(endereco: string): void {
