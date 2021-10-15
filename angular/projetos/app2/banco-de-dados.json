@@ -213,6 +213,13 @@
       "complemento": "casa 10",
       "formaPagamento": "dinheiro",
       "id": 4
+    },
+    {
+      "endereco": "R. nome da rua",
+      "numero": "55",
+      "complemento": "casa",
+      "formaPagamento": "dinheiro",
+      "id": 5
     }
   ]
 }
