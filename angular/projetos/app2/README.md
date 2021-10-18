@@ -168,3 +168,19 @@ ou
             >
 
     </form>
+
+Validação dos campos é feita através de atributos(HTML)
+
+Ngform
+
+NgModel
+
+## Reactive Forms
+
+Validação de campos é feita através da classe do componente(TS)
+
+* ReactiveFormsModule
+* formGroup
+* formcontrol
+* validaçào dos campos é feita através da classe do componente(TS)
+
