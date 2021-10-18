@@ -83,8 +83,11 @@
             required
             name="endereco"
             ngModel
+            #inputEndereco="ngModel"
           >
-          <small class="form-text text-danger">Endereço inválido</small>
+          <small *ngIf="inputEndereco.valid && inputEndereco.touched" class="form-text text-success">Ok</small>
+
+          <small *ngIf="!inputEndereco.valid && inputEndereco.touched" class="form-text text-danger">Endereço inválido</small>
         </div>
 
         <div class="form-group col-md-2">
