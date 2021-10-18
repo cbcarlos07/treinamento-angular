@@ -154,7 +154,7 @@ ou
 
 ## Template form
 
-    <form #formulario="ngForm">
+    <form #formulario="ngForm" (ngSubmit)="nomeDafuncao()" >
 
          <input 
               type="text" 
@@ -182,5 +182,5 @@ Validação de campos é feita através da classe do componente(TS)
 * ReactiveFormsModule
 * formGroup
 * formcontrol
-* validaçào dos campos é feita através da classe do componente(TS)
+* validação dos campos é feita através da classe do componente(TS)
 
