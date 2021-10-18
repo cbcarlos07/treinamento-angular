@@ -184,3 +184,9 @@ Validação de campos é feita através da classe do componente(TS)
 * formcontrol --> formControlName
 * validação dos campos é feita através da classe do componente(TS)
 
+<b>app.module.ts</b>
+
+    imports: [
+        ReactiveFormsModule
+    ]   
+
