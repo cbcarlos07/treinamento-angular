@@ -21,7 +21,7 @@ constructor(private http: HttpClient) {  }
         pedido,
         {headers: headers} 
     )
-     .pipe(map((resposta: any) => resposta.id ))
-   // .pipe(map((resposta: any) => console.log(resposta)))
+    // .pipe(map((resposta: any) => { return resposta }))
+    .pipe(map((resposta: any) => resposta.id))
   }
 }

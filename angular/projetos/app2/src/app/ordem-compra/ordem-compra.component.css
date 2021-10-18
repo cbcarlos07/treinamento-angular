@@ -2,3 +2,11 @@
     margin-top: 50px;
     margin-bottom: 150px;
 }
+
+input.ng-invalid {
+  border: 1px solid red;
+}
+
+select.ng-invalid {
+  border: 1px solid red;
+}
