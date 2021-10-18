@@ -181,6 +181,6 @@ Validação de campos é feita através da classe do componente(TS)
 
 * ReactiveFormsModule
 * formGroup
-* formcontrol
+* formcontrol --> formControlName
 * validação dos campos é feita através da classe do componente(TS)
 
