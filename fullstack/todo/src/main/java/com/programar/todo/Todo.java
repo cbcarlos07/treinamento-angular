@@ -21,7 +21,7 @@ public class Todo implements Serializable {
     private LocalDateTime dataParaFinalizar;
     private boolean finalizado;
 
-    public Todo(){
+    public Todo(Object o, String estudar, String s, String s1, LocalDateTime parse, boolean b){
         super();
     }
 
