@@ -32,11 +32,13 @@ export class OrdemCompraComponent implements OnInit {
 
   constructor(
     private ordemCompraService: OrdemCompraService,
-    private carrinhoService: CarrinhoService
+    public carrinhoService: CarrinhoService
   ) {}
 
   ngOnInit() {
     this.itensCarrinho = this.carrinhoService.exibirItens();
+    console.log(this.itensCarrinho);
+
   }
 
   public confirmarCompra(): void {
@@ -61,4 +63,14 @@ export class OrdemCompraComponent implements OnInit {
         });
     }
   }
+
+  public adicionar(item: ItemCarrinho): void {
+    this.carrinhoService.adicionarQuantidade(item)
+  }
+
+  public diminuir(item: ItemCarrinho): void {
+    this.carrinhoService.diminuirQuantidade(item)
+  }
+
+
 }
