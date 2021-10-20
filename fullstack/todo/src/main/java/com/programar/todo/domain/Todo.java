@@ -1,31 +1,32 @@
-package com.programar.todo;
+package com.programar.todo.domain;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.io.Serializable;
-import java.time.LocalDateTime;
-import java.util.Objects;
 
-@Entity
+@Entity()
 public class Todo implements Serializable {
-
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
+
     private String titulo;
     private String descricao;
     private LocalDateTime dataParaFinalizar;
-    private boolean finalizado;
+    private Boolean finalizado = false;
 
-    public Todo(Object o, String estudar, String s, String s1, LocalDateTime parse, boolean b){
+    public Todo() {
         super();
     }
 
-    public Todo(int id, String titulo, String descricao, LocalDateTime dataParaFinalizar, boolean finalizado) {
+    public Todo(Integer id, String titulo, String descricao, LocalDateTime dataParaFinalizar, Boolean finalizado) {
+        super();
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
@@ -33,11 +34,11 @@ public class Todo implements Serializable {
         this.finalizado = finalizado;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -65,24 +66,37 @@ public class Todo implements Serializable {
         this.dataParaFinalizar = dataParaFinalizar;
     }
 
-    public boolean isFinalizado() {
+    public Boolean getFinalizado() {
         return finalizado;
     }
 
-    public void setFinalizado(boolean finalizado) {
+    public void setFinalizado(Boolean finalizado) {
         this.finalizado = finalizado;
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Todo todo = (Todo) o;
-        return id == todo.id;
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        return result;
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(id);
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Todo other = (Todo) obj;
+        if (id == null) {
+            if (other.id != null)
+                return false;
+        } else if (!id.equals(other.id))
+            return false;
+        return true;
     }
+
 }
