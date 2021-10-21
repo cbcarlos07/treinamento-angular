@@ -3,7 +3,7 @@
 
   <div class="content" *ngFor="let item of list">
     <mat-card class="mat-elevation-z8" >
-      <p>Data para finalizar: {{ item.dataParaFinalizar | date: 'dd/MM/yyyy' }}</p>
+      <p>Data para finalizar: {{ item.dataParaFinalizar }}</p>
       <mat-card-header>
         <mat-card-title>{{ item.titulo }}</mat-card-title>
         <mat-card-subtitle>{{ item.descricao }}</mat-card-subtitle>
