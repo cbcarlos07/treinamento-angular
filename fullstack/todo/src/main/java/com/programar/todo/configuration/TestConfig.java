@@ -1,13 +1,13 @@
 package com.programar.todo.configuration;
 
+import java.text.ParseException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 import com.programar.todo.services.DBService;
-
-import java.text.ParseException;
 
 @Configuration
 @Profile("test")
@@ -18,7 +18,6 @@ public class TestConfig {
 
 	@Bean
 	public boolean instacia() throws ParseException {
-
 		this.dbService.instaciaBaseDeDados();
 		return true;
 	}
