@@ -9,11 +9,13 @@ import { TodoService } from 'src/app/services/todo.service';
   providers: [TodoService]
 })
 export class ReadAllComponent implements OnInit {
+    closed: number = 0;
 	list: Todo[] = [];
     constructor(private todoService: TodoService) { }
 
     ngOnInit(): void {
         this.findAll()
+        
     }
 
     findAll(): void {
@@ -21,7 +23,15 @@ export class ReadAllComponent implements OnInit {
             .findAll()
             .subscribe((todo: Todo[]) => {
                 this.list = todo
+                this.countClosed()
             })
+    }
+
+    countClosed(): void{
+        for (let todo of this.list) {
+            if( todo.finalizado )
+              this.closed++
+        }
     }
 
 }

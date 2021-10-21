@@ -1,4 +1,9 @@
 <div class="container">
+
+    <div class="badge">
+        <button mat-stroked-button color="primary" [matBadge]="closed">Tasks Finalizadas</button>
+    </div>
+
   <button class="novo-todo mat-elevation-z8" mat-stroked-button color="primary">NOVO TO-DO</button>
 
   <div class="content" *ngFor="let item of list">
