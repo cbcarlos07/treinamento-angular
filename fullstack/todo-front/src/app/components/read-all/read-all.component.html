@@ -1,12 +1,12 @@
 <div class="container">
-  <button class="novo to-do mat-elevation-z8" mat-stroked-button color="primary">NOVO TO-DO</button>
+  <button class="novo-todo mat-elevation-z8" mat-stroked-button color="primary">NOVO TO-DO</button>
 
-  <div class="content">
-    <mat-card class="mat-elevation-z8">
-      <p>Data para finalizar: </p>
+  <div class="content" *ngFor="let item of list">
+    <mat-card class="mat-elevation-z8" >
+      <p>Data para finalizar: {{ item.dataParaFinalizar | date: 'dd/MM/yyyy' }}</p>
       <mat-card-header>
-        <mat-card-title>Shiba Inu</mat-card-title>
-        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+        <mat-card-title>{{ item.titulo }}</mat-card-title>
+        <mat-card-subtitle>{{ item.descricao }}</mat-card-subtitle>
       </mat-card-header>
 
       <div class="actions">

@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Profile;
 
 import com.programar.todo.services.DBService;
 
+import java.text.ParseException;
+
 @Configuration
 @Profile("test")
 public class TestConfig {
@@ -15,7 +17,8 @@ public class TestConfig {
 	private DBService dbService;
 
 	@Bean
-	public boolean instacia() {
+	public boolean instacia() throws ParseException {
+
 		this.dbService.instaciaBaseDeDados();
 		return true;
 	}

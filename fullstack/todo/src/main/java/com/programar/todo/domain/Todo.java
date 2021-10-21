@@ -1,7 +1,10 @@
 package com.programar.todo.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,14 +21,15 @@ public class Todo implements Serializable {
 	
 	private String titulo;
 	private String descricao;
-	private LocalDateTime dataParaFinalizar;
+	@JsonFormat(pattern = "dd/MM/yyyy")
+	private Date dataParaFinalizar;
 	private Boolean finalizado = false;
 
 	public Todo() {
 		super();
 	}
 
-	public Todo(Integer id, String titulo, String descricao, LocalDateTime dataParaFinalizar, Boolean finalizado) {
+	public Todo(Integer id, String titulo, String descricao, Date dataParaFinalizar, Boolean finalizado) {
 		super();
 		this.id = id;
 		this.titulo = titulo;
@@ -58,11 +62,11 @@ public class Todo implements Serializable {
 		this.descricao = descricao;
 	}
 
-	public LocalDateTime getDataParaFinalizar() {
+	public Date getDataParaFinalizar() {
 		return dataParaFinalizar;
 	}
 
-	public void setDataParaFinalizar(LocalDateTime dataParaFinalizar) {
+	public void setDataParaFinalizar(Date dataParaFinalizar) {
 		this.dataParaFinalizar = dataParaFinalizar;
 	}
 
